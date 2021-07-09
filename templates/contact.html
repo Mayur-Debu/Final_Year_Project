@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>House Price Predictor</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='/images/icons/favicon.ico') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/contact.css') }}" />
+</head>
+
+<body>
+	<div class="bg-contact2">
+		<div class="container-contact2">
+			<div class="wrap-contact2">
+
+				<!-- FORM TO REPOR ISSUES -->
+				<form class="contact2-form validate-form" action="https://formspree.io/f/mrgrgonl" method="POST">
+					<span class="contact2-form-title">
+						👋 Hey there, Say Hello!
+					</span>
+
+					<div class="wrap-input2 validate-input" data-validate="Name is required">
+						<input class="input2" type="text" name="name" required>
+						<span class="focus-input2" data-placeholder="Hi, I am"></span>
+					</div>
+
+					<div class="wrap-input2 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+						<input class="input2" type="email" name="email" required>
+						<span class="focus-input2" data-placeholder="My email is"></span>
+					</div>
+
+					<div class="wrap-input2 validate-input" data-validate="Message is required">
+						<textarea class="input2" name="message" required></textarea>
+						<span class="focus-input2" data-placeholder="My message for you is"></span>
+					</div>
+
+					<div class="container-contact2-form-btn">
+						<div class="wrap-contact2-form-btn">
+							<div class="contact2-form-bgbtn"></div>
+							<button class="contact2-form-btn">
+								Send Message
+							</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

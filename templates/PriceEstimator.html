@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!--      embeding the font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!--      linking css file-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/estimate.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='/images/icons/favicon.ico') }}">
+
+    <title>House Price predictor</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <h3 class="text-center" id="heading">House Price Prediction using Machine Learning📍</h3>
+
+        <form class="form-horizontal" id="info" action="{{ url_for('predict_home_price')}}" method="POST">
+
+            <!-- Location -->
+            <div class="inputSelect">
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="ui-location">Select Location</label>
+                    <select class="form-select" name="ui-location" id="uiLocations" required>
+                        <option selected disabled value>Choose Locality</option>
+                        <option value="adyar">Adyar</option>
+                        <option value="anna nagar">Anna Nagar</option>
+                        <option value="chrompet">Chrompet</option>
+                        <option value="kk nagar">KK Nagar</option>
+                        <option value="karapakkam">Karapakkam</option>
+                        <option value="t nagar">T Nagar</option>
+                        <option value="velachery">Velachery</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- House Type -->
+            <div class="inputSelect">
+                <div class="input-group mb-3">
+                    <label class="input-group-text " for="ui-house-type">Select House Type</label>
+                    <select class="form-select" name="ui-street-type" id="radio-street-type-1" required>
+                        <option selected disabled value>Select House Type</option>
+                        <option value="commercial">Commercial</option>
+                        <option value="house">House</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <!-- Parking Facility -->
+            <div id="radios">
+                <div class="radioOption">
+                    <label for="ui-parking-facility" class="header">Is there a Parking Facility?</label>
+                    <div id="ui-parking-facility">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-parking-facility-1"
+                                name="ui-parking-facility" value="yes" required>
+                            <label class="form-check-label" for="flexRadio1">
+                                Yes
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-parking-facility-2"
+                                name="ui-parking-facility" value="no" required>
+                            <label class="form-check-label" for="flexRadio2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Street Type -->
+                <div class="radioOption">
+                    <label for="ui-street-type" class="header"> What kind of street leads to the house?</label>
+                    <div id="ui-street-type">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-street-type-1" name="ui-street-type"
+                                value="paved" required>
+                            <label class="form-check-label" for="streetRadio1">
+                                Paved
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-street-type-2" name="ui-street-type"
+                                value="paved" required>
+                            <label class="form-check-label" for="streetRadio2">
+                                Gravel
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-street-type-3" name="ui-street-type"
+                                value="paved" required>
+                            <label class="form-check-label" for="streetRadio3">
+                                No Access
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Number of Bedrooms -->
+                <div class="radioOption">
+                    <label for="ui-n-bedroom" class="header">Total Number of Bedrooms you have</label>
+                    <div id="totalBedroom">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-bedroom-1" name="ui-n-bedroom"
+                                value="1" required>
+                            <label class="form-check-label" for="bedroomRadio1">
+                                1
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-bedroom-2" name="ui-n-bedroom"
+                                value="2" required>
+                            <label class="form-check-label" for="bedroomRadio2">
+                                2
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-bedroom-3" name="ui-n-bedroom"
+                                value="3" required>
+                            <label class="form-check-label" for="bedroomRadio3">
+                                3
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-bedroom-4" name="ui-n-bedroom"
+                                value="4" required>
+                            <label class="form-check-label" for="bedroomRadio4">
+                                4
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-bedroom-5" name="ui-n-bedroom"
+                                value="5" required>
+                            <label class="form-check-label" for="bedroomRadio5">
+                                5
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Number of Bathrooms -->
+                <div class="radioOption">
+                    <label for="ui-n-bathroom" class="header">Total Number of Bathrooms you have</label>
+                    <div id="ui-n-bathroom">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-bathroom-1" name="ui-n-bathroom"
+                                value="1" required>
+                            <label class="form-check-label" for="bathroomRadio1">
+                                1
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-bathroom-2" name="ui-n-bathroom"
+                                value="2" required>
+                            <label class="form-check-label" for="bathroomRadio2">
+                                2
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-bathroom-3" name="ui-n-bathroom"
+                                value="3" required>
+                            <label class="form-check-label" for="bathroomRadio3">
+                                3
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-bathroom-4" name="ui-n-bathroom"
+                                value="4" required>
+                            <label class="form-check-label" for="bathroomRadio4">
+                                4
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-bathroom-5" name="ui-n-bathroom"
+                                value="5" required>
+                            <label class="form-check-label" for="bathroomRadio5">
+                                5
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Number of rooms -->
+                <div class="radioOption">
+                    <label for="ui-n-room" class="header">Total Number of rooms you have</label>
+                    <div id="ui-n-room">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-room-1" name="ui-n-room" value="1"
+                                required>
+                            <label class="form-check-label" for="roomRadio1">
+                                1
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-room-2" name="ui-n-room" value="2"
+                                required>
+                            <label class="form-check-label" for="roomRadio2">
+                                2
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-room-3" name="ui-n-room" value="3"
+                                required>
+                            <label class="form-check-label" for="roomRadio3">
+                                3
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-room-4" name="ui-n-room" value="4"
+                                required>
+                            <label class="form-check-label" for="roomRadio4">
+                                4
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-n-room-5" name="ui-n-room" value="5"
+                                required>
+                            <label class="form-check-label" for="roomRadio5">
+                                5
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Quality Score of bathrooms -->
+                <div class="radioOption">
+                    <label for="ui-qs-bathroom" class="header">Quality Score for Bathroom</label>
+                    <div id="ui-qs-bathroom">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-bathroom-1" name="ui-qs-bathroom"
+                                value="1" required>
+                            <label class="form-check-label" for="bathroomQuality1">
+                                1
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-bathroom-2" name="ui-qs-bathroom"
+                                value="2" required>
+                            <label class="form-check-label" for="bathroomQuality2">
+                                2
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-bathroom-3" name="ui-qs-bathroom"
+                                value="3" required>
+                            <label class="form-check-label" for="bathroomQuality3">
+                                3
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-bathroom-4" name="ui-qs-bathroom"
+                                value="4" required>
+                            <label class="form-check-label" for="bathroomQuality4">
+                                4
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-bathroom-5" name="ui-qs-bathroom"
+                                value="5" required>
+                            <label class="form-check-label" for="bathroomQuality5">
+                                5
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Quality Score of bedroom -->
+                <div class="radioOption">
+                    <label for="ui-qs-bedroom" class="header">Quality Score for Bedroom</label>
+                    <div id="ui-qs-bedroom">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-bedroom-1" name="ui-qs-bedroom"
+                                value="1" required>
+                            <label class="form-check-label" for="bedroomQuality1">
+                                1
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-bedroom-2" name="ui-qs-bedroom"
+                                value="2" required>
+                            <label class="form-check-label" for="bedroomQuality2">
+                                2
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-bedroom-3" name="ui-qs-bedroom"
+                                value="3" required>
+                            <label class="form-check-label" for="bedroomQuality3">
+                                3
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-bedroom-4" name="ui-qs-bedroom"
+                                value="4" required>
+                            <label class="form-check-label" for="bedroomQuality4">
+                                4
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-bedroom-5" name="ui-qs-bedroom"
+                                value="5" required>
+                            <label class="form-check-label" for="bedroomQuality5">
+                                5
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quality Score for the rooms -->
+                <div class="radioOption">
+                    <label for="ui-qs-room" class="header">Quality Score for room</label>
+                    <div id="ui-qs-room">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-room-1" name="ui-qs-room"
+                                value="1" required>
+                            <label class="form-check-label" for="roomQuality1">
+                                1
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-room-2" name="ui-qs-room"
+                                value="2" required>
+                            <label class="form-check-label" for="roomQuality2">
+                                2
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-room-3" name="ui-qs-room"
+                                value="3" required>
+                            <label class="form-check-label" for="roomQuality3">
+                                3
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-room-4" name="ui-qs-room"
+                                value="4" required>
+                            <label class="form-check-label" for="roomQuality4">
+                                4
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-room-5" name="ui-qs-room"
+                                value="5" required>
+                            <label class="form-check-label" for="roomQuality5">
+                                5
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="radioOption">
+                    <label for="ui-qs-overall" class="header">Overall Quality Score</label>
+                    <div id="ui-qs-overall">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-overall-1" name="ui-qs-overall"
+                                value="1" required>
+                            <label class="form-check-label" for="overallQuality1">
+                                1
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-overall-2" name="ui-qs-overall"
+                                value="2" required>
+                            <label class="form-check-label" for="overallQuality2">
+                                2
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-overall-3" name="ui-qs-overall"
+                                value="3" required>
+                            <label class="form-check-label" for="overallQuality3">
+                                3
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-overall-4" name="ui-qs-overall"
+                                value="4" required>
+                            <label class="form-check-label" for="overallQuality4">
+                                4
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="radio-qs-overall-5" name="ui-qs-overall"
+                                value="5" required>
+                            <label class="form-check-label" for="overallQuality5">
+                                5
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Sqft -->
+                <div class="input-group mb-3" id="interior">
+                    <span class="input-group-text" id="inputGroup-sizing-default1">Interior sqft:</span>
+                    <input type="text" id="ui-int-sqft" name="ui-int-sqft" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default1" required>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-grad">Get estimated Price</button>
+            </div>
+
+            <div id="uiEstimatedPrice" class="result">
+                <h6>{{response}}</h6>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>

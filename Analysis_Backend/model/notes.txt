@@ -1,0 +1,78 @@
+*************************************************DATASET INFORMATION******************************************************* 
+1) HOUSE FEATURES: 
+	INT_SQFT – The interior Sq. Ft of the property
+	N_BEDROOM – The number of Bed rooms
+	N_BATHROOM - The number of bathrooms
+	N_ROOM – Total Number of Rooms
+	QS_ROOMS – The quality score assigned for rooms based on buyer reviews
+	QS_BATHROOM – The quality score assigned for bathroom based on buyer reviews
+	QS_BEDROOM – The quality score assigned for bedroom based on buyer reviews
+	QS_OVERALL – The Overall quality score assigned for the property
+	SALE_COND – The Sale Condition
+	Normal: Normal Sale
+	Abnorml: Abnormal Sale - trade, foreclosure, short sale
+	AdjLand: Adjoining Land Purchase
+	Family: Sale between family members
+	Partial: Home was not completed when last assessed
+	BUILDTYPE – The type of building :House, commercial or other.
+
+2) SURROUNDING AND LOCALITY: 
+	AREA – The property in which the real estate is located
+	DIST_MAINROAD – The distance of the property to the main road
+	PARK_FACIL – Whether parking facility is available	
+	UTILITY_AVAIL-
+		AllPub: All public Utilities (E,G,W,& S)
+		NoSewr: Electricity, Gas, and Water (Septic Tank)
+		NoSeWa: Electricity and Gas Only
+		ELO: Electricity only
+	STREET -
+		Gravel
+		Paved
+		No Access
+	MZZONE -
+		A: Agriculture
+		C: Commercial
+		I: Industrial
+		RH: Residential High Density
+		RL: Residential Low Density
+		RM: Residential Medium Density
+
+3) HOUSE SALES PRICE:
+	PRT_ID – The Property Transaction ID assigned by ChennaiEstate
+	COMMIS – The Commission paid to the agent
+	SALES_PRICE – The total sale price of the property
+
+
+***************************************************************************************************************************	
+
+
+
+Stages of Predictive Modeling:
+	1. Problem Definition.
+	2. Hypothesis Generation.
+	3. Data Extraction/collection.
+	4. Data Exploration and Transformation.
+	5. Predictive Modeling.
+	6. Model Deployment.
+
+PROBLEM DEFINITION: 
+	We are suppose to predict the house prices based on different attributes.
+
+HYPOTHESIS WE ARE LOOKING AT:
+	1. Size of the house.
+	2. Location.
+	3. Facilities.
+	4. Crime rate of the locality.
+	5. Availabilty (as in ready to move-in or not).
+
+DATA EXLPORATION:
+	1. Reading the data.
+	2. Variable Identification.
+	3. Univariate Analysis. (Bar-plots, Histograms)
+	4. Bi-variate Analysis. (Scatterplots)
+	5. Missing Value Treatment. (Mean, Mod, Median)
+	6. Outlier Treatment.
+	7. Variable Transformation.
+
+
+	 

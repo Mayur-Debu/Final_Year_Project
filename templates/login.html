@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>House Price Predictor</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='/images/icons/favicon.ico') }}">
+</head>
+
+<body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+				<!-- LOGIN FORM -->
+				<form class="login100-form validate-form flex-sb flex-w">
+					<span class="login100-form-title p-b-53">
+						"👋 We help you discover a home."
+					</span>
+					<span class="login100-form-subtitle">
+						Sign in with
+					</span>
+
+					<!-- Log in with Google -->
+					<a href="{{ url_for('google_login') }}" class="btn-google m-b-20">
+						<img src="{{ url_for('static', filename='/images/icons/google.svg') }}" alt="GOOGLE">
+						Google
+					</a>
+
+
+					<!-- Log in with github -->
+					<a href="{{url_for('github_login')}}" class="btn-github m-b-20">
+						<img src="{{ url_for('static', filename='/images/icons/github.svg') }}" alt="GITHUB">
+						GitHub
+					</a>
+
+					<br>
+					<span class="login100-form-subtitle">
+						Want to contribute?
+					</span>
+
+					<!-- Lopen source contribution -->
+					<a href="https://github.com/Mayur-Debu/House-Price-Predictor" class="btn-face m-b-20"
+						target="_blank">
+						<img src="{{ url_for('static', filename='/images/icons/fork.svg') }}" alt="FORK">
+						Source code
+					</a>
+
+				</form>
+
+				<!-- Footer Text -->
+				<div class="footer">
+					<span class="footer_text">
+						<a class="hover-shadow hover-color" href="{{url_for('contact_page')}}">
+							📝 Having issues with the service?</a>
+					</span>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+/* GLOBAL PADDING AND MARGINS */
+.p-t-62 {
+  padding-top: 62px;
+}
+.p-b-33 {
+  padding-bottom: 33px;
+}
+.p-b-20 {
+  padding-bottom: 20px;
+}
+.p-b-53 {
+  padding-bottom: 43px;
+}
+.p-l-110 {
+  padding-left: 110px;
+}
+.p-r-110 {
+  padding-right: 110px;
+}
+.m-b-20 {
+  margin-bottom: 20px;
+}
+
+/* FONT FAMILY */
+@font-face {
+  font-family: Poppins-Regular;
+  src: url("../fonts/poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url("../fonts/poppins/Poppins-Medium.ttf");
+}
+
+@font-face {
+  font-family: Montserrat-Medium;
+  src: url("../fonts/montserrat/Montserrat-Medium.ttf");
+}
+
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url("../fonts/montserrat/Montserrat-SemiBold.ttf");
+}
+/* ---------------------------------------------------------------------------------------------------------------------- */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: Poppins-Regular, sans-serif;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+a {
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 17;
+  color: #666666;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+a:focus {
+  outline: none !important;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #fc00ff;
+  border-color: #fc00ff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+}
+
+p {
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
+}
+
+ul,
+li {
+  margin: 0px;
+  list-style-type: none;
+}
+
+/* =============================================  LOG-IN CONTAINER  ===========================================================*/
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-login100 {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.wrap-login100 {
+  width: 680px;
+  background-color: rgba(255, 255, 255, 0.897);
+  border-radius: 10px;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+/* ================================================== LOG-IN FORM =================================================================== */
+.login100-form {
+  width: 100%;
+}
+
+.login100-form-title {
+  width: 100%;
+  display: block;
+  font-family: Montserrat-Medium;
+  font-size: 25px;
+  color: black;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: bold;
+}
+
+.login100-form-subtitle {
+  width: 100%;
+  display: block;
+  font-family: Montserrat-Medium;
+  font-size: 22px;
+  color: black;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 12px;
+}
+
+/* ====================================================== LOG-IN BUTTONS ============================================================ */
+
+.btn-google,
+.btn-face,
+.btn-github {
+  font-family: Montserrat-SemiBold;
+  font-size: 18px;
+  line-height: 1.2;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  width: 100%;
+  height: 70px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+}
+
+/* Gradient hover effect for google button */
+.btn-google::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  top: 0;
+  left: 0;
+  background: #a64bf4;
+  background: -webkit-linear-gradient(45deg, #f12711, #f5af19);
+  background: -o-linear-gradient(45deg, #f12711, #f5af19);
+  background: -moz-linear-gradient(45deg, #f12711, #f5af19);
+  background: linear-gradient(45deg, #f12711, #f5af19);
+  opacity: 0;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/* Gradient hover effect for facebook button */
+.btn-face::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  top: 0;
+  left: 0;
+  background: #a64bf4;
+  background: -webkit-linear-gradient(45deg, #004e92, #000428);
+  background: -o-linear-gradient(45deg, #004e92, #000428);
+  background: -moz-linear-gradient(45deg, #004e92, #000428);
+  background: linear-gradient(45deg, #004e92, #000428);
+  opacity: 0;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/* Gradient hover effect for github button */
+.btn-github::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  top: 0;
+  left: 0;
+  background: #a64bf4;
+  background: -webkit-linear-gradient(45deg, #143e5e, #71b280);
+  background: -o-linear-gradient(45deg, #143e5e, #71b280);
+  background: -moz-linear-gradient(45deg, #143e5e, #71b280);
+  background: linear-gradient(45deg, #143e5e, #71b280);
+  opacity: 0;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.btn-face {
+  color: #fff;
+  background-color: #3b5998;
+  padding-left: 35px;
+}
+
+.btn-face img {
+  width: 30px;
+  margin-right: 15px;
+  padding-bottom: 3px;
+}
+
+.btn-google {
+  color: white;
+  background-color: #e73827;
+}
+
+.btn-google img {
+  width: 30px;
+  margin-right: 15px;
+  padding-bottom: 3px;
+}
+
+.btn-github {
+  background-color: #414345;
+  color: white;
+}
+.btn-github img {
+  width: 30px;
+  margin-right: 15px;
+  padding-bottom: 3px;
+}
+
+.btn-face:hover:before,
+.btn-google:hover:before,
+.btn-github:hover::before {
+  opacity: 1;
+}
+
+.btn-face:hover,
+.btn-google:hover,
+.btn-github:hover {
+  color: #fff;
+}
+
+/* ====================================================== Footer Text ============================================================ */
+.footer_text a {
+  width: 100%;
+  display: block;
+  font-family: Montserrat-Medium;
+  font-size: 15px;
+  color: black;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 30px;
+  text-decoration: none;
+}
+
+/* **************** MAKING THE LOGIN PAGE RESPONSIVE FOR THE MOBILE VIEWER *************** */
+@media (max-width: 768px) {
+  .wrap-login100 {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrap-login100 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .btn-face,
+  .btn-google {
+    width: 100%;
+  }
+}
